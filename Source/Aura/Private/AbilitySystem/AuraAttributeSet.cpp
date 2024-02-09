@@ -9,8 +9,7 @@
 
 UAuraAttributeSet::UAuraAttributeSet()
 {
-	InitHealth(10.0f);
-	InitMana(10.0f);
+
 }
 
 void UAuraAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth) const

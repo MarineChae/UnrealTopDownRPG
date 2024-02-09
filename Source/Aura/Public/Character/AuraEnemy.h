@@ -24,8 +24,18 @@ public:
 	void HighlightActor() override;
 	void UnhighlightActor() override;
 
+	//CombatInterface
+	virtual int32 GetPlayerLevel()override;
+
 protected:
 	virtual void BeginPlay() override;
 
 	virtual void InitAbilityActorInfo() override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaluts")
+	int32 Level = 1;
+
+private:
+
+
 };
