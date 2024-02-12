@@ -1,7 +1,7 @@
 
 #include "Character/AuraCharacterBase.h"
 #include "AbilitySystemComponent.h"
-
+#include"AbilitySystem/AuraAbilitySystemComponent.h"
 AAuraCharacterBase::AAuraCharacterBase()
 {
 	PrimaryActorTick.bCanEverTick = false;
@@ -37,6 +37,15 @@ void AAuraCharacterBase::InitializeDefaultAttributes() const
 	ApplyEffectToSelf(DefaultPrimaryAttribute, 1);
 	ApplyEffectToSelf(DefaultSecondaryAttribute, 1);
 	ApplyEffectToSelf(DefaultVitalAttribute, 1);
+}
+
+void AAuraCharacterBase::AddCharacterAbilites()
+{
+	UAuraAbilitySystemComponent* ASC = CastChecked<UAuraAbilitySystemComponent>(AbilitySystemComponent);
+	if (!HasAuthority()) return;
+
+	ASC->AddCharacterAbilites(StartUpAbilities);
+
 }
 
 UAbilitySystemComponent* AAuraCharacterBase::GetAbilitySystemComponent() const
