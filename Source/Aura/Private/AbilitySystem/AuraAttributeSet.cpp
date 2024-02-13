@@ -202,7 +202,7 @@ void UAuraAttributeSet::SetEffectProperties(FEffectProperties& Props, const FGam
 		// get target actor
 		Props.TargetAvatarActor = Data.Target.AbilityActorInfo->AvatarActor.Get();
 		Props.TargetController = Data.Target.AbilityActorInfo->PlayerController.Get();
-		Props.TargetCharacter = Cast<ACharacter>(Props.TargetController->GetPawn());
+		Props.TargetCharacter = Cast<ACharacter>(Props.TargetAvatarActor);
 
 		Props.TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(Props.TargetAvatarActor);
 	}
